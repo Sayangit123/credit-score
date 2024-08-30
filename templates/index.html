@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit Score Classification</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+</head>
+<body>
+    <div class="container">
+    <h1>Credit Score Classification</h1>
+    <form action="/predict"  method="post">
+        
+        <div class="form-group">
+            <label for="Occupation">Occupation:</label>
+            <select id="Occupation" name="Occupation" required>
+                <option value="" disabled selected>Select Occupation</option>
+                <option value="Scientist">Scinetist</option>
+                <option value="Teacher">Teacher</option>
+                <option value="Lawyer">Lawyer</option>
+                <option value="Musician">Musician</option>
+                <option value="Mechanic">Mechanic</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="Month">Month:</label>
+            <select id="Month" name="Month" required>
+                <option value="" disabled selected>Select Occupation</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
+                <option value="August">August</option>
+                <option value="September">September</option>
+                <option value="October">October</option>
+                <option value="November">November</option>
+                <option value="December">December</option>
+            </select>
+        <div>
+     
+        <div class="form-group">
+            <label for="Payment_Behaviour">Payment_Behaviour:</label>
+            <select id="Payment_Behaviour" name="Payment_Behaviour" required>
+                <option value="" disabled selected>Select Payment Behaviour</option>
+                <option value="High_spent_Small_value_payments">High_spent_Small_value_payments</option>
+                <option value="High_spent_Medium_value_payments">High_spent_Medium_value_payments</option>
+                <option value="High_spent_Large_value_payments">High_spent_Large_value_payments</option>
+                <option value="Low_spent_Small_value_payments">Low_spent_Small_value_payments</option>
+                <option value="Low_spent_Medium_value_payments">Low_spent_Medium_value_payments</option>
+                <option value="Low_spent_Large_value_payments">Low_spent_Large_value_payments</option>
+            </select>     
+        </div> 
+        <div class="form-group">
+            <label for="Age">Age:</label>
+            <input type="text" id="Age" name="Age" placeholder="e.g., 5000000.0" required>
+        </div>
+        <div class="form-group">
+            <label for="Annual_Income">Annual_Income:</label>
+            <input type="text" id="Annual_Income" name="Annual_Income" placeholder="e.g., 5000000.0" required>
+        </div>
+        <div class="form-group">
+            <label for="Monthly_Inhand_Salary">Monthly_Inhand_Salary:</label>
+            <input type="text" id="Monthly_Inhand_Salary" name="Monthly_Inhand_Salary" placeholder="e.g., 5000.0" required>
+        </div>   
+        <div class="form-group">
+            <label for="Num_Bank_Accounts">Num_Bank_Accounts:</label>
+            <input type="text" id="Num_Bank_Accounts" name="Num_Bank_Accounts" placeholder="e.g., 5" required>
+        </div> 
+   
+        <div class="form-group">
+            <label for="Num_Credit_Card">Num_Credit_Card:</label>
+            <input type="text" id="Num_Credit_Card" name="Num_Credit_Card" placeholder="e.g., 6" required>
+        </div> 
+        <div class="form-group">
+            <label for="Interest_Rate">Interest_Rate:</label>
+            <input type="text" id="Interest_Rate" name="Interest_Rate" placeholder="e.g., 7" required>
+        </div>    
+        <div class="form-group">
+            <label for="Num_of_Loan">Num_of_Loan:</label>
+            <input type="text" id="Num_of_Loan" name="Num_of_Loan" placeholder="e.g., 4.0" required>
+        </div> 
+        <div class="form-group">
+            <label for="Delay_from_due_date">Delay_from_due_date:</label>
+            <input type="text" id="Delay_from_due_date" name="Delay_from_due_date" placeholder="e.g., 4.0" required>
+        </div> 
+        <div class="form-group">
+            <label for="Num_Credit_Inquiries">Num_Credit_Inquiries:</label>
+            <input type="text" id="Num_Credit_Inquiries" name="Num_Credit_Inquiries" placeholder="e.g., 4.0" required>
+        </div> 
+        <div class="form-group">
+            <label for="Credit_Utilization_Ratio">Credit_Utilization_Ratio:</label>
+            <input type="text" id="Credit_Utilization_Ratio" name="Credit_Utilization_Ratio" placeholder="e.g., 50.0" required>
+        </div> 
+        <div class="form-group">
+            <label for="Total_EMI_per_month">Total_EMI_per_month:</label>
+            <input type="text" id="Total_EMI_per_month" name="Total_EMI_per_month" placeholder="e.g., 50.0" required>
+        </div>
+        <div class="form-group">
+            <label for="Amount_invested_monthly">Amount_invested_monthly:</label>
+            <input type="text" id="Amount_invested_monthly" name="Amount_invested_monthly" placeholder="e.g., 200.0" required>
+        </div>  
+        <div class="form-group">
+            <label for="Monthly_Balance">Monthly_Balance:</label>
+            <input type="text" id="Monthly_Balance" name="Monthly_Balance" placeholder="e.g., 400.0" required>
+        </div>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h2>{{ prediction_text }}</h2>
+    {% endif %}                          
+    </div>
+</body>
+</html>
